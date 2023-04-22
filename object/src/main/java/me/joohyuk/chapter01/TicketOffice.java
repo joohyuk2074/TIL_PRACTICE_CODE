@@ -1,4 +1,4 @@
-package me.joohyuk.domain;
+package me.joohyuk.chapter01;
 
 import java.util.ArrayList;
 import java.util.Arrays;
