@@ -25,7 +25,7 @@ public class ReservationAgency {
         Money fee;
         if (discountable) {
             Money discountAmount = Money.ZERO;
-            switch (movie.getMonvieType()) {
+            switch (movie.getMovieType()) {
                 case AMOUNT_DISCOUNT:
                     discountAmount = movie.getDiscountAmount();
                     break;

@@ -1,5 +1,7 @@
 package me.joohyuk.Chapter04;
 
+import me.joohyuk.Chapter02.Money;
+
 public class Reservation {
 
     private Customer customer;
