@@ -32,6 +32,10 @@ public class Money {
         return new Money(this.amount.multiply(BigDecimal.valueOf(percent)));
     }
 
+    public Money times(Money money) {
+        return new Money(this.amount.multiply(money.amount));
+    }
+
     public boolean isLessThan(Money other) {
         return amount.compareTo(other.amount) < 0;
     }
