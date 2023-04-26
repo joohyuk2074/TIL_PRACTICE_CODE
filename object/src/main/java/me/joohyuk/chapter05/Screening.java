@@ -1,5 +1,8 @@
 package me.joohyuk.chapter05;
 
+import me.joohyuk.Money;
+import me.joohyuk.Reservation;
+
 import java.time.LocalDateTime;
 
 public class Screening {
@@ -22,5 +25,9 @@ public class Screening {
 
     public int getSequence() {
         return sequence;
+    }
+
+    public Movie getMovie() {
+        return movie;
     }
 }
