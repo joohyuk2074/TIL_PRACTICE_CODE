@@ -11,13 +11,6 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/object" />
-          </set>
-        </option>
-      </GradleProjectSettings>
-      <GradleProjectSettings>
-        <option name="externalProjectPath" value="$PROJECT_DIR$/tokenizer" />
-        <option name="modules">
-          <set>
             <option value="$PROJECT_DIR$/tokenizer" />
           </set>
         </option>
