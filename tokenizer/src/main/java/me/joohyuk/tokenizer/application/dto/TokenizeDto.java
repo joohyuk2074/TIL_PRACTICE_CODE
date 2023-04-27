@@ -1,4 +1,4 @@
-package me.joohyuk.tokenizer.dto;
+package me.joohyuk.tokenizer.application.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
@@ -7,7 +7,7 @@ import lombok.*;
 @Builder
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class TokenizedDto {
+public class TokenizeDto {
 
     @JsonProperty("target_language")
     private String targetLanguage;

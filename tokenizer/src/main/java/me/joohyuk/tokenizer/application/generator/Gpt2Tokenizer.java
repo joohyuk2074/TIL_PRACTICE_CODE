@@ -1,4 +1,4 @@
-package me.joohyuk.tokenizer;
+package me.joohyuk.tokenizer.application.generator;
 
 import com.google.api.client.util.Maps;
 import com.google.api.client.util.Sets;
