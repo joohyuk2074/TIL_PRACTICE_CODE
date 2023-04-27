@@ -1,4 +1,4 @@
-package me.joohyuk.tokenizer.dto;
+package me.joohyuk.tokenizer.application.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import me.joohyuk.tokenizer.application.dto.passage.PassageDto;
 
 import java.util.UUID;
 
@@ -34,6 +35,8 @@ public class TokenizedChunkDto {
     private String source;
 
     private String content;
+
+    private TokenizeDto tokenizeDto;
 
     private SummaryDto summaryDto;
 

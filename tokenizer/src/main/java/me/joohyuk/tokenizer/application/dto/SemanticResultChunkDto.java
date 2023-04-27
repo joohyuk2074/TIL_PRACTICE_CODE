@@ -1,4 +1,4 @@
-package me.joohyuk.tokenizer.dto;
+package me.joohyuk.tokenizer.application.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -8,7 +8,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
-import java.util.UUID;
 
 @Getter
 @Builder
@@ -16,7 +15,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class TranslatedChunkDto {
+public class SemanticResultChunkDto {
 
     private String semanticChunkUuid;
 
@@ -32,19 +31,30 @@ public class TranslatedChunkDto {
 
     private List<ContentDto> contents;
 
-    private TokenizedDto tokenizeDto;
+    private List<TokenizeDto> tokenizeDtoList;
 
-    public TokenizedChunkDto toTokenizedChunkDto(int subId, String content) {
-        return TokenizedChunkDto.builder()
-            .tokenizedChunkUuid(UUID.randomUUID().toString())
-            .tokenizedChunkId(this.getSemanticChunkId() + "-" + subId)
+    public TranslatedChunkDto toTranslatedChunkDto(List<ContentDto> contents, TokenizeDto tokenizeDto) {
+        return TranslatedChunkDto.builder()
             .semanticChunkUuid(this.semanticChunkUuid)
             .semanticChunkId(this.semanticChunkId)
             .documentUuid(this.documentUuid)
             .title(this.title)
             .heading(this.heading)
             .source(this.source)
-            .content(content)
+            .contents(contents)
+            .tokenizeDto(tokenizeDto)
+            .build();
+    }
+
+    public TranslatedChunkDto toDefaultTranslatedChunkDto() {
+        return TranslatedChunkDto.builder()
+            .semanticChunkUuid(this.semanticChunkUuid)
+            .semanticChunkId(this.semanticChunkId)
+            .documentUuid(this.documentUuid)
+            .title(this.title)
+            .heading(this.heading)
+            .source(this.source)
+            .contents(this.contents)
             .build();
     }
 

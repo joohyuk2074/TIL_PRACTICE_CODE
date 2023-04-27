@@ -1,4 +1,4 @@
-package me.joohyuk.tokenizer.dto;
+package me.joohyuk.tokenizer.application.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

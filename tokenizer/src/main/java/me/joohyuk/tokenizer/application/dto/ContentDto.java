@@ -1,4 +1,4 @@
-package me.joohyuk.tokenizer.dto;
+package me.joohyuk.tokenizer.application.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -25,5 +25,4 @@ public class ContentDto {
 
     @JsonProperty("image_url")
     private String imageUrl;
-
 }

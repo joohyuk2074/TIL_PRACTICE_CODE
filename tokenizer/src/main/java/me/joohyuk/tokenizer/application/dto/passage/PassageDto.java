@@ -1,9 +1,10 @@
-package me.joohyuk.tokenizer.dto;
+package me.joohyuk.tokenizer.application.dto.passage;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import me.joohyuk.tokenizer.application.dto.TokenizeDto;
 
 @Getter
 @Builder
@@ -31,4 +32,5 @@ public class PassageDto {
 
     private String content;
 
+    private TokenizeDto tokenizeDto;
 }
