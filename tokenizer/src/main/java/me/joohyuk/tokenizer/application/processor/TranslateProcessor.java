@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import me.joohyuk.tokenizer.application.dto.TokenizeDto;
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
@@ -13,6 +13,7 @@ import reactor.core.publisher.Mono;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -30,18 +31,20 @@ public class TranslateProcessor {
         String uri = "/translate?api-version={api-version}&from={from}&to={to}";
         RequestBody requestBody = RequestBody.from(requestText);
 
-        Mono<ResponseBody> response = webClient.post()
+        Mono<List<ResponseBody>> response = webClient.post()
             .uri(uri, uriVariables)
             .bodyValue(List.of(requestBody))
             .retrieve()
-            .bodyToMono(ResponseBody.class);
+            .bodyToMono(new ParameterizedTypeReference<List<ResponseBody>>() {
+            });
 
-        ResponseBody responseBody = response.block();
+        List<ResponseBody> responseBodies = response.block();
+        ResponseBody responseBody = responseBodies.get(0);
 
-        System.out.println("Translated text: " + responseBody.getTranslations().get(0).getText());
-        log.info("Translate text: {}", responseBody.getTranslations().get(0).getText());
+        String translatedText = Objects.requireNonNull(responseBody).getTranslations().get(0).getText();
+        log.info("Translate text: {}", translatedText);
 
-        return responseBody.getTranslations().get(0).getText();
+        return translatedText;
     }
 
     @Getter
