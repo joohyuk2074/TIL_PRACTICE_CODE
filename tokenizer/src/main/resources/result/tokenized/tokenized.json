@@ -1,0 +1,26 @@
+[
+  {
+    "tokenizedChunkUuid": "6e5e6d5e-eca5-4e5d-9d7f-4a6b5c3d2e1f",
+    "tokenizedChunkId": "1",
+    "semanticChunkUuid": "c0a8f246-8b71-4f4a-9f85-9d4c2e4a5b3c",
+    "semanticChunkId": "2",
+    "documentUuid": "5aa5d5c5-5c5d-4e5f-8b5a-6d5e3f2c1g1h",
+    "title": "Sample Title",
+    "heading": "Sample Heading",
+    "source": "Sample Source",
+    "content": "This is a sample content for the given TokenizedChunkDto class.",
+    "tokenizeDto": {
+      "target_language": "en",
+      "token_size": 100,
+      "summary_size": 50
+    },
+    "summaryDto": {
+      "summaryUuid": "b1a2b3c4-d5e6-f7g8-h9i1-j2k3l4m5n6",
+      "documentUuid": "5aa5d5c5-5c5d-4e5f-8b5a-6d5e3f2c1g1h",
+      "tokenizedChunkUuid": "6e5e6d5e-eca5-4e5d-9d7f-4a6b5c3d2e1f",
+      "tokenizedChunkId": "1",
+      "previousSummary": "This is the previous summary.",
+      "nextSummary": "This is the next summary."
+    }
+  }
+]

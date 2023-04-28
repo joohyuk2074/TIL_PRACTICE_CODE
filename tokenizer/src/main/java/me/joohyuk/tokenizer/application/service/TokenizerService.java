@@ -5,10 +5,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import me.joohyuk.tokenizer.application.dto.ParsedChunk;
-import me.joohyuk.tokenizer.application.dto.TokenizedChunkDto;
+import me.joohyuk.tokenizer.application.dto.tokenizedchunk.TokenizedChunkDto;
 import me.joohyuk.tokenizer.application.generator.TokenizedChunkGenerator;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 
 @Slf4j
@@ -28,6 +29,7 @@ public class TokenizerService {
             throw new RuntimeException(e);
         }
 
-        return tokenizedChunkGenerator.generate(parsedChunk.getChunks());
+//        return tokenizedChunkGenerator.generate();
+        return Collections.emptyList();
     }
 }

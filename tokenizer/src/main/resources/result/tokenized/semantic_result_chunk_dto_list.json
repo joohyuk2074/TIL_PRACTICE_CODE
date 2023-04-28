@@ -1,0 +1,90 @@
+[
+  {
+    "semanticChunkUuid": "c0a8f246-8b71-4f4a-9f85-9d4c2e4a5b3c",
+    "semanticChunkId": "1",
+    "documentUuid": "5aa5d5c5-5c5d-4e5f-8b5a-6d5e3f2c1g1h",
+    "title": "Sample Title 1",
+    "heading": "Sample Heading 1",
+    "source": "Sample Source 1",
+    "contents": [
+      {
+        "type": "text",
+        "text": "원하는 가입 기간을 선택하여 월 납입 한도 내 신규와 입금이 자유롭고, 거래 실적에 따라 우대이자율을 제공하는 적금\n"
+      },
+      {
+        "type": "text",
+        "text": "상품종류: "
+      },
+      {
+        "type": "text",
+        "text": "정기적금\n"
+      },
+      {
+        "type": "text",
+        "text": "가입대상: "
+      },
+      {
+        "type": "text",
+        "text": "개인부분\n"
+      },
+      {
+        "type": "text",
+        "text": "가입기간: "
+      },
+      {
+        "type": "text",
+        "text": "12개월 이상 36개월 이하 1일 단위\n"
+      },
+      {
+        "type": "text",
+        "text": "가입금액: "
+      },
+      {
+        "type": "text",
+        "text": "1천원 부터 300만원 까지\n"
+      }
+    ],
+    "tokenizeDtoList": [
+      {
+        "target_language": "kr",
+        "token_size": 500,
+        "summary_size": 150
+      },
+      {
+        "target_language": "en",
+        "token_size": 500,
+        "summary_size": 150
+      }
+    ]
+  },
+  {
+    "semanticChunkUuid": "b2c3d4e5-f6g7-h8i9-j1k2-l3m4n5o6p7",
+    "semanticChunkId": "2",
+    "documentUuid": "5aa5d5c5-5c5d-4e5f-8b5a-6d5e3f2c1g1h",
+    "title": "Sample Title 2",
+    "heading": "Sample Heading 2",
+    "source": "Sample Source 2",
+    "contents": [
+      {
+        "type": "text",
+        "text": "This is another sample text content 3."
+      },
+      {
+        "type": "text",
+        "text": "This is another sample text content 4."
+      }
+    ],
+    "tokenizeDtoList": [
+      {
+        "target_language": "kr",
+        "token_size": 500,
+        "summary_size": 150
+      },
+      {
+        "target_language": "en",
+        "token_size": 520,
+        "summary_size": 150
+      }
+    ]
+  }
+]
