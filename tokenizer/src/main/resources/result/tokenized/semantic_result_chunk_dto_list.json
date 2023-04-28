@@ -46,7 +46,7 @@
     ],
     "tokenizeDtoList": [
       {
-        "target_language": "kr",
+        "target_language": "ko",
         "token_size": 500,
         "summary_size": 150
       },
@@ -76,13 +76,13 @@
     ],
     "tokenizeDtoList": [
       {
-        "target_language": "kr",
+        "target_language": "ko",
         "token_size": 500,
         "summary_size": 150
       },
       {
         "target_language": "en",
-        "token_size": 520,
+        "token_size": 500,
         "summary_size": 150
       }
     ]
