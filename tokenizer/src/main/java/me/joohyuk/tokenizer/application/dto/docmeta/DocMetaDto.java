@@ -48,4 +48,12 @@ public class DocMetaDto {
     @JsonProperty("updated_at")
     private String updatedAt;
 
+
+    // test용
+    public static DocMetaDto createDefaultDocMetaDto() {
+        DocMetaDto docMetaDto = new DocMetaDto();
+        docMetaDto.language = "ko";
+        docMetaDto.documentUuid = "5aa5d5c5-5c5d-4e5f-8b5a-6d5e3f2c1g1h";
+        return docMetaDto;
+    }
 }

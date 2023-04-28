@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import me.joohyuk.tokenizer.application.dto.ContentDto;
 import me.joohyuk.tokenizer.application.dto.TokenizeDto;
+import me.joohyuk.tokenizer.application.dto.semanticchunk.SemanticResultChunkDto;
 
 import java.util.List;
 import java.util.UUID;
@@ -50,4 +51,17 @@ public class TranslatedChunkDto {
             .build();
     }
 
+    public static TranslatedChunkDto of(SemanticResultChunkDto semanticChunkDto, String title,
+                                        String heading, List<ContentDto> contents, TokenizeDto tokenizeDto) {
+        return TranslatedChunkDto.builder()
+            .semanticChunkUuid(semanticChunkDto.getSemanticChunkUuid())
+            .semanticChunkId(semanticChunkDto.getSemanticChunkId())
+            .documentUuid(semanticChunkDto.getDocumentUuid())
+            .source(semanticChunkDto.getSource())
+            .title(title)
+            .heading(heading)
+            .contents(contents)
+            .tokenizeDto(tokenizeDto)
+            .build();
+    }
 }

@@ -2,13 +2,17 @@ package me.joohyuk.tokenizer;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import me.joohyuk.tokenizer.application.dto.docmeta.DocMetaDto;
 import me.joohyuk.tokenizer.application.dto.semanticchunk.SemanticResultChunkDto;
 import me.joohyuk.tokenizer.application.dto.tokenizedchunk.TokenizedChunkDto;
 import me.joohyuk.tokenizer.application.generator.TokenizedChunkGenerator;
+import me.joohyuk.tokenizer.application.processor.TranslateProcessor;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
+import org.springframework.web.reactive.function.client.WebClient;
 
 import java.io.IOException;
 import java.util.List;
@@ -19,9 +23,15 @@ public class TokenizedChunkGeneratorTest {
 
     private ObjectMapper objectMapper;
 
+    @Mock
+    private WebClient webClient;
+
+    private TranslateProcessor translateProcessor;
+
     @BeforeEach
     public void init() {
-        tokenizedChunkGenerator = new TokenizedChunkGenerator();
+        translateProcessor = new TranslateProcessor(webClient);
+        tokenizedChunkGenerator = new TokenizedChunkGenerator(translateProcessor);
         objectMapper = new ObjectMapper();
     }
 
@@ -33,7 +43,7 @@ public class TokenizedChunkGeneratorTest {
         });
 
         // when
-        List<TokenizedChunkDto> result = tokenizedChunkGenerator.generate(list);
+        List<TokenizedChunkDto> result = tokenizedChunkGenerator.generate(DocMetaDto.createDefaultDocMetaDto(), list);
 
         // then
         for (SemanticResultChunkDto semanticResultChunkDto : list) {
