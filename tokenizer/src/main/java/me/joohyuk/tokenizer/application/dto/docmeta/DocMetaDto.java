@@ -1,4 +1,4 @@
-package me.joohyuk.tokenizer.application.dto;
+package me.joohyuk.tokenizer.application.dto.docmeta;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;

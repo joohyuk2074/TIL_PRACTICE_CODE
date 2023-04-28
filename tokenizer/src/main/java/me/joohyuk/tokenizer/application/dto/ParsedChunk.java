@@ -3,6 +3,8 @@ package me.joohyuk.tokenizer.application.dto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.ToString;
+import me.joohyuk.tokenizer.application.dto.docmeta.DocMetaDto;
+import me.joohyuk.tokenizer.application.dto.semanticchunk.SemanticChunkDto;
 
 import java.util.List;
 

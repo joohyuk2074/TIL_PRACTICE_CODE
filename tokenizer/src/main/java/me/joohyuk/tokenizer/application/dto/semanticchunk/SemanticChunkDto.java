@@ -1,10 +1,11 @@
-package me.joohyuk.tokenizer.application.dto;
+package me.joohyuk.tokenizer.application.dto.semanticchunk;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
+import me.joohyuk.tokenizer.application.dto.ContentDto;
 
 import java.util.List;
 
@@ -28,6 +29,12 @@ public class SemanticChunkDto {
     private String source;
 
     private List<ContentDto> contents;
+
+    public List<String> getTexts() {
+        return this.contents.stream()
+            .map(ContentDto::getText)
+            .toList();
+    }
 
     public SemanticResultChunkDto toSemanticResultChunkDto() {
         return SemanticResultChunkDto.builder()

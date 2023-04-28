@@ -1,4 +1,4 @@
-package me.joohyuk.tokenizer.application.dto;
+package me.joohyuk.tokenizer.application.dto.tokenizedchunk;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import me.joohyuk.tokenizer.application.dto.summary.SummaryDto;
+import me.joohyuk.tokenizer.application.dto.TokenizeDto;
 import me.joohyuk.tokenizer.application.dto.passage.PassageDto;
 
 import java.util.UUID;
