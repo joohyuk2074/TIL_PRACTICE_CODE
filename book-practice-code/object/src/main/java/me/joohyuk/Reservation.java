@@ -1,8 +1,6 @@
 package me.joohyuk;
 
-import me.joohyuk.Chapter02.Money;
-import me.joohyuk.Chapter04.Customer;
-import me.joohyuk.Chapter04.Screening;
+import me.joohyuk.chapter05.Screening;
 
 public class Reservation {
 
