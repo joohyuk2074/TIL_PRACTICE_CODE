@@ -54,6 +54,7 @@ public class DocMetaDto {
         DocMetaDto docMetaDto = new DocMetaDto();
         docMetaDto.language = "ko";
         docMetaDto.documentUuid = "5aa5d5c5-5c5d-4e5f-8b5a-6d5e3f2c1g1h";
+        docMetaDto.documentUri = "/Users/joohyuk/Documents/JAVAWORKSPACE/posicube/gpt-data-backend/src/main/resources/file/sample.json";
         return docMetaDto;
     }
 }
