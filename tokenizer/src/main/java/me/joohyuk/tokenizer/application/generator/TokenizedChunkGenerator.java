@@ -1,7 +1,5 @@
 package me.joohyuk.tokenizer.application.generator;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import me.joohyuk.tokenizer.application.dto.ContentDto;
@@ -27,17 +25,7 @@ public class TokenizedChunkGenerator {
 
     public List<TokenizedChunkDto> generate(DocMetaDto docMetaDto, List<SemanticResultChunkDto> chunks) {
         List<TranslatedChunkDto> translatedChunkDtoList = getTranslatedChunkDtoList(docMetaDto, chunks);
-
-        // TODO: 테스트용
-        ObjectMapper objectMapper = new ObjectMapper();
-        for (TranslatedChunkDto translatedChunkDto : translatedChunkDtoList) {
-            try {
-                String result = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(translatedChunkDto);
-                log.info("TranslatedChunkDto: {}", result);
-            } catch (JsonProcessingException e) {
-                throw new RuntimeException(e);
-            }
-        }
+        // TODO: token 단위로 쪼개기
 
         return Collections.emptyList();
     }
