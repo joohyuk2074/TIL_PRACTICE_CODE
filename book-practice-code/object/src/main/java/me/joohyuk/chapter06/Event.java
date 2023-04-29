@@ -23,8 +23,8 @@ public class Event {
         }
         return true;
     }
-
-    public void reschedule(RecurringSchedule schedule) {
-        from = LocalDateTime.of(from.toLocalDate().plusDays(daysDistance(schedule)), schedule.getFrom());
-    }
+//
+//    public void reschedule(RecurringSchedule schedule) {
+//        from = LocalDateTime.of(from.toLocalDate().plusDays(daysDistance(schedule)), schedule.getFrom());
+//    }
 }
