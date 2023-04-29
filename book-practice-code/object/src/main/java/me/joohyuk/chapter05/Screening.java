@@ -1,5 +1,6 @@
 package me.joohyuk.chapter05;
 
+import me.joohyuk.Customer;
 import me.joohyuk.Money;
 import me.joohyuk.Reservation;
 

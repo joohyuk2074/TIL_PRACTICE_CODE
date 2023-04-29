@@ -10,7 +10,9 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/object" />
+            <option value="$PROJECT_DIR$/book-practice-code" />
+            <option value="$PROJECT_DIR$/book-practice-code/java-coding-interview" />
+            <option value="$PROJECT_DIR$/book-practice-code/object" />
             <option value="$PROJECT_DIR$/tokenizer" />
           </set>
         </option>
