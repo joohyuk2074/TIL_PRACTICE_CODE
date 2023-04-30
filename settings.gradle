@@ -1,7 +1,10 @@
 rootProject.name = 'TIL_PRACTICE_CODE'
 include 'book-practice-code:object'
 include 'book-practice-code:java-coding-interview'
+include 'book-practice-code:effective-java'
+
 include 'tokenizer'
 
 findProject(':book-practice-code:java-coding-interview')?.name = 'java-coding-interview'
+findProject(':book-practice-code:effective-java')?.name = 'effective-java'
 
