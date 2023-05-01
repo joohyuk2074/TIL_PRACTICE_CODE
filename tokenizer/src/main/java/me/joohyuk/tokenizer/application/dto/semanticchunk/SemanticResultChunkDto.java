@@ -36,6 +36,10 @@ public class SemanticResultChunkDto {
 
     private List<TokenizeDto> tokenizeDtoList;
 
+    public static SemanticResultChunkDto from(SemanticChunkDto semanticChunkDto){
+
+    }
+
     public TranslatedChunkDto toTranslatedChunkDto(List<ContentDto> contents, TokenizeDto tokenizeDto) {
         return TranslatedChunkDto.builder()
             .semanticChunkUuid(this.semanticChunkUuid)

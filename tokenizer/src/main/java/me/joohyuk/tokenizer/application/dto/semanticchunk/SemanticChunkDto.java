@@ -10,7 +10,7 @@ import me.joohyuk.tokenizer.application.dto.ContentDto;
 import java.util.List;
 
 @Getter
-@Setter
+//@Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class SemanticChunkDto {
