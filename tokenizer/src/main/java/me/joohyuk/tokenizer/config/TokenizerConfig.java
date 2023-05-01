@@ -1,6 +1,5 @@
 package me.joohyuk.tokenizer.config;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,8 +8,6 @@ import org.springframework.web.reactive.function.client.WebClient;
 @RequiredArgsConstructor
 @Configuration
 public class TokenizerConfig {
-
-    private final ObjectMapper objectMapper;
 
     @Bean
     public WebClient webClient() {

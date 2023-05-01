@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import me.joohyuk.tokenizer.application.dto.InputSpecRequest;
-import me.joohyuk.tokenizer.application.dto.ParsedChunk;
 import me.joohyuk.tokenizer.application.dto.docmeta.DocMetaDto;
 import me.joohyuk.tokenizer.application.dto.semanticchunk.SemanticResultChunkDto;
 import me.joohyuk.tokenizer.application.dto.tokenizedchunk.TokenizedChunkDto;
