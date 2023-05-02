@@ -1,7 +1,6 @@
 package me.joohyuk.tokenizer.application.dto.inner;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.posicube.gptdatabackend.module.manager.storage.mongo.domain.model.entities.semantic.SemanticChunk;
 import lombok.*;
 
 import java.util.List;

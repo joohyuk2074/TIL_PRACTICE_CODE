@@ -3,8 +3,10 @@ include 'book-practice-code:object'
 include 'book-practice-code:java-coding-interview'
 include 'book-practice-code:effective-java'
 
-include 'tokenizer'
+include 'posicube:tokenizer'
 
 findProject(':book-practice-code:java-coding-interview')?.name = 'java-coding-interview'
 findProject(':book-practice-code:effective-java')?.name = 'effective-java'
+include 'lecture-practice-code'
+include 'posicube'
 
