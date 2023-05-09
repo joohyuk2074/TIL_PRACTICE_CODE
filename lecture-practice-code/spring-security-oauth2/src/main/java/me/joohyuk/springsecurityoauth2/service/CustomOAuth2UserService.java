@@ -28,6 +28,6 @@ public class CustomOAuth2UserService extends AbstractOAuth2UserService implement
         // 회원가입
         super.register(providerUser, userRequest);
 
-        return null;
+        return oAuth2User;
     }
 }

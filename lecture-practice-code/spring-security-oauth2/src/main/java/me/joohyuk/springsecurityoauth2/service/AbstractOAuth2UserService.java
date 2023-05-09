@@ -1,6 +1,7 @@
 package me.joohyuk.springsecurityoauth2.service;
 
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import me.joohyuk.springsecurityoauth2.model.*;
 import me.joohyuk.springsecurityoauth2.repository.UserRepository;
@@ -10,23 +11,19 @@ import org.springframework.security.oauth2.core.user.OAuth2User;
 
 @Slf4j
 @Getter
+@RequiredArgsConstructor
 public abstract class AbstractOAuth2UserService {
 
     private final UserService userService;
 
     private final UserRepository userRepository;
 
-    public AbstractOAuth2UserService(UserService userService, UserRepository userRepository) {
-        this.userService = userService;
-        this.userRepository = userRepository;
-    }
-
     protected void register(ProviderUser providerUser, OAuth2UserRequest userRequest) {
         User user = userRepository.findByUsername(providerUser.getUsername());
 
         if (user == null) {
-            String registrationId = userRequest.getClientRegistration().getRegistrationId();
-            userService.register(registrationId, providerUser);
+            ClientRegistration clientRegistration = userRequest.getClientRegistration();
+            userService.register(clientRegistration.getRegistrationId(), providerUser);
         } else {
             log.info("user: {}", user);
         }

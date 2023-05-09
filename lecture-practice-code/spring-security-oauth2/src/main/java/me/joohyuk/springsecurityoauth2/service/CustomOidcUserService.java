@@ -22,13 +22,13 @@ public class CustomOidcUserService extends AbstractOAuth2UserService implements 
     public OidcUser loadUser(OidcUserRequest userRequest) throws OAuth2AuthenticationException {
         ClientRegistration clientRegistration = userRequest.getClientRegistration();
         OAuth2UserService<OidcUserRequest, OidcUser> oidcUserService = new OidcUserService();
-        OAuth2User oAuth2User = oidcUserService.loadUser(userRequest);
+        OidcUser oidcUser = oidcUserService.loadUser(userRequest);
 
-        ProviderUser providerUser = super.providerUser(clientRegistration, oAuth2User);
+        ProviderUser providerUser = super.providerUser(clientRegistration, oidcUser);
 
         // 회원가입
         super.register(providerUser, userRequest);
 
-        return null;
+        return oidcUser;
     }
 }

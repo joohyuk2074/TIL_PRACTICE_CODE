@@ -32,13 +32,13 @@ public abstract class OAuth2ProviderUser implements ProviderUser {
     }
 
     @Override
-    public String getProvider() {
-        return clientRegistration.getRegistrationId();
+    public String getEmail() {
+        return (String) getAttributes().get("email");
     }
 
     @Override
-    public String getEmail() {
-        return (String) getAttributes().get("email");
+    public String getProvider() {
+        return clientRegistration.getRegistrationId();
     }
 
     @Override

@@ -1,10 +1,12 @@
 package me.joohyuk.springsecurityoauth2.model;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.oauth2.client.registration.ClientRegistration;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 
 import java.util.Map;
 
+@Slf4j
 public class NaverUser extends OAuth2ProviderUser {
 
     public NaverUser(OAuth2User oAuth2User, ClientRegistration clientRegistration) {
