@@ -1,36 +1,54 @@
 package me.joohyuk.springsecurityoauth2;
 
+import lombok.RequiredArgsConstructor;
+import me.joohyuk.springsecurityoauth2.service.CustomOAuth2UserService;
+import me.joohyuk.springsecurityoauth2.service.CustomOidcUserService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
+import org.springframework.security.core.authority.mapping.GrantedAuthoritiesMapper;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
+@RequiredArgsConstructor
 public class OAuth2ClientConfig {
-//
-//    @Bean
-//    public ClientRegistrationRepository clientRegistrationRepository() {
-//        return new InMemoryClientRegistrationRepository(keycloakClientRegistration());
-//    }
-//
-//    private ClientRegistration keycloakClientRegistration() {
-//        return ClientRegistrations.fromIssuerLocation("http://localhost:8080/realms/oauth2")
-//            .registrationId("keycloak")
-//            .clientId("oauth2-client-app")
-//            .clientSecret("lygPKsTF849lHc0PA0uV3HVdGmneGaMU")
-//            .redirectUri("http://localhost:8081/login/oauth2/code/keycloak")
-//            .build();
-//    }
+
+    private final CustomOAuth2UserService customOAuth2UserService;
+
+    private final CustomOidcUserService customOidcUserService;
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.authorizeHttpRequests(authRequest -> authRequest
-//            .requestMatchers("/loginPage").permitAll()
+    public WebSecurityCustomizer webSecurityCustomizer() {
+        return (web) -> web.ignoring().requestMatchers
+            ("/static/js/**", "/static/images/**", "/static/css/**", "/static/scss/**");
+    }
+
+    @Bean
+    public SecurityFilterChain oauth2SecurityFilterChain(HttpSecurity http) throws Exception {
+        http.authorizeHttpRequests((requests) -> requests
+            .requestMatchers("/api/user")
+            .hasAnyRole("SCOPE_profile", "SCOPE_email")
+            .requestMatchers("/api/oidc")
+            .hasRole("SCOPE_openid")
+            .requestMatchers("/")
+            .permitAll()
             .anyRequest().authenticated());
-//        http.oauth2Login(oauth2 -> oauth2.loginPage("/loginPage"));
-        http.oauth2Login(Customizer.withDefaults());
+
+        http
+            .oauth2Login(oauth2 -> oauth2
+                .userInfoEndpoint(userInfoEndpointConfig ->
+                    userInfoEndpointConfig.userService(customOAuth2UserService)
+                        .oidcUserService(customOidcUserService)
+                ));
+
+        http.logout().logoutSuccessUrl("/");
 
         return http.build();
+    }
+
+    @Bean
+    public GrantedAuthoritiesMapper customAuthorityMapper() {
+        return new CustomAuthorityMapper();
     }
 }
