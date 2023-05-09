@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
@@ -22,14 +23,35 @@ public class OAuth2ClientConfig {
 //            .redirectUri("http://localhost:8081/login/oauth2/code/keycloak")
 //            .build();
 //    }
+//
+//    @Bean
+//    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+//        http.authorizeHttpRequests(authRequest -> authRequest
+////            .requestMatchers("/loginPage").permitAll()
+//            .anyRequest().permitAll());
+////        http.oauth2Login(oauth2 -> oauth2.loginPage("/loginPage"));
+//        http.oauth2Login(Customizer.withDefaults());
+//
+//        return http.build();
+//    }
+
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.authorizeHttpRequests(authRequest -> authRequest
-//            .requestMatchers("/loginPage").permitAll()
-            .anyRequest().permitAll());
-//        http.oauth2Login(oauth2 -> oauth2.loginPage("/loginPage"));
-        http.oauth2Login(Customizer.withDefaults());
+    public WebSecurityCustomizer webSecurityCustomizer() {
+        return (web) -> web.ignoring().requestMatchers("/static/js/**", "/static/images/**", "/static/css/**", "/static/scss/**");
+    }
+
+    @Bean
+    public SecurityFilterChain oauth2SecurityFilterChain(HttpSecurity http) throws Exception {
+        http.authorizeHttpRequests((requests) -> requests
+            .requestMatchers("/")
+            .permitAll()
+            .anyRequest().authenticated());
+
+        http
+            .oauth2Login(Customizer.withDefaults());
+
+        http.logout().logoutSuccessUrl("/");
 
         return http.build();
     }

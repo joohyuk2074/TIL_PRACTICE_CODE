@@ -5,23 +5,42 @@ spring:
   security:
     oauth2:
       client:
-        registration: ## 클라이언트 설정
+        registration:
           keycloak:
-            client-id: oauth2-client-app                                    # 서비스 공급자에 등록된 클라이언트 ID
-            client-name: oauth2-client-app                                  # 클라이언트 이름
-            redirect-uri: http://localhost:8081/login/oauth2/code/keycloak  # 인가서버에서 권한 코드 부여 후 클라이언트로 리다이렉트 하는 위치
-            authorization-grant-type: authorization_code                    # OAuth 2.0 권한 부여 타입
-            client-secret: lygPKsTF849lHc0PA0uV3HVdGmneGaMU                 # 서비스 공급자에 등록된 클라이언트 비밀번호
-            client-authentication-method: client_secret_basic               # 클라이언트 자격증명 전송방식
-            scope: # 리소스 접근 제한 범위
-              - openid
-              - profile
-              - email
-        provider: ## 공급자 설정
+            authorization-grant-type: authorization_code
+            client-id: oauth2-client-app
+            client-name: oauth2-client-app
+            client-secret: lygPKsTF849lHc0PA0uV3HVdGmneGaMU
+            redirect-uri: http://localhost:8081/login/oauth2/code/keycloak
+            scope: profile,email
+
+          google:
+            client-id: 871175160830-jj1ldkrt6sf9v4t2nts58c8tb5dt2ptt.apps.googleusercontent.com
+            client-secret: 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
+            scope: openid,profile,email
+
+          naver:
+            client-id: fwz3GEBWmCQsThk1hnkq
+            client-secret: saqe7gWGGa
+            authorization-grant-type: authorization_code
+            client-name: naver-client-app
+            redirect-uri: http://localhost:8081/login/oauth2/code/naver
+            scope: profile,email
+        #                        scope: openid,profile,email
+
+        provider:
           keycloak:
-            issuer-uri: http://localhost:8080/realms/oauth2                                     # 서비스 공급자 위치
-            authorization-uri: http://localhost:8080/realms/oauth2/protocol/openid-connect/auth # OAuth 2.0 권한 코드 부여 엔드 포인트
-            jwk-set-uri: http://localhost:8080/realms/oauth2/protocol/openid-connect/certs      # OAuth 2.0 JwkSetUri 엔드 포인트 (pub key 요청 uri)
-            token-uri: http://localhost:8080/realms/oauth2/protocol/openid-connect/token     # OAuth 2.0 토큰 엔드 포인트
-            user-info-uri: http://localhost:8080/realms/oauth2/protocol/openid-connect/userinfo # OAuth 2.0 UserInfo 엔드 포인트
-            user-name-attribute: preferred_username                                             # OAuth 2.0 사용자명을 추출하는 클레임명
+            authorization-uri: http://localhost:8080/realms/oauth2/protocol/openid-connect/auth
+            issuer-uri: http://localhost:8080/realms/oauth2
+            jwk-set-uri: http://localhost:8080/realms/oauth2/protocol/openid-connect/certs
+            token-uri: http://localhost:8080/realms/oauth2/protocol/openid-connect/token
+            user-info-uri: http://localhost:8080/realms/oauth2/protocol/openid-connect/userinfo
+            user-name-attribute: preferred_username
+          naver:
+            authorization-uri: https://nid.naver.com/oauth2.0/authorize
+            token-uri: https://nid.naver.com/oauth2.0/token
+            user-info-uri: https://openapi.naver.com/v1/nid/me
+            user-name-attribute: response
+
+  mvc:
+    static-path-pattern: /static/**
