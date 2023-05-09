@@ -27,7 +27,7 @@ public class OAuth2ClientConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(authRequest -> authRequest
 //            .requestMatchers("/loginPage").permitAll()
-            .anyRequest().authenticated());
+            .anyRequest().permitAll());
 //        http.oauth2Login(oauth2 -> oauth2.loginPage("/loginPage"));
         http.oauth2Login(Customizer.withDefaults());
 
