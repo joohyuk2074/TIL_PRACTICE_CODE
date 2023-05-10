@@ -6,6 +6,7 @@ include 'book-practice-code:effective-java'
 include 'lecture-practice-code:spring-security-oauth2'
 include 'lecture-practice-code:spring-security-oauth2-resource'
 include 'lecture-practice-code:spring-security-ldap'
+include 'lecture-practice-code:restful-web-services'
 
 include 'posicube:tokenizer'
 
