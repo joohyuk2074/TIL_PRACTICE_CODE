@@ -5,10 +5,12 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
-import java.util.List;
 
 @RestController
 public class UserResource {
+
+    private UserDaoService service = new UserDaoService();
+
     @PostMapping("/users")
     public ResponseEntity<User> createUser(@RequestBody User user) {
 
@@ -20,5 +22,15 @@ public class UserResource {
             .toUri();
 
         return ResponseEntity.created(location).build();
+    }
+
+    @GetMapping("/users/{id}")
+    public User retrieveUser(@PathVariable int id) {
+        User user = service.findOne(id);
+
+        if (user == null)
+            throw new UserNotFoundException("id:" + id);
+
+        return user;
     }
 }
