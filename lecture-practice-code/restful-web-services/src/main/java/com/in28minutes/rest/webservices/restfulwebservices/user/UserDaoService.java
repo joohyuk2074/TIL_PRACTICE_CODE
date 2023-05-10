@@ -22,6 +22,10 @@ public class UserDaoService {
         users.add(new User(++usersCount, "Jim", LocalDate.now().minusYears(20)));
     }
 
+    public List<User> findAll() {
+        return users;
+    }
+
     public User save(User user) {
         user.setId(++usersCount);
         users.add(user);

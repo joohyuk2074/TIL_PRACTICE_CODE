@@ -5,11 +5,18 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
+import java.util.List;
 
 @RestController
 public class UserResource {
 
     private UserDaoService service = new UserDaoService();
+
+    // GET /users
+    @GetMapping("/users")
+    public List<User> retrieveAllUsers() {
+        return service.findAll();
+    }
 
     @PostMapping("/users")
     public ResponseEntity<User> createUser(@RequestBody User user) {
