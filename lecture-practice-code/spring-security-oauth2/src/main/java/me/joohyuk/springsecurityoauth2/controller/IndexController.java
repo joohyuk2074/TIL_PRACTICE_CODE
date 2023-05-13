@@ -3,6 +3,7 @@ package me.joohyuk.springsecurityoauth2.controller;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
+import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,5 +29,24 @@ public class IndexController {
             model.addAttribute("user", userName);
         }
         return "index";
+    }
+
+    @GetMapping("/user")
+    public OAuth2User user(Authentication authentication) {
+//        OAuth2AuthenticationToken authentication1 = (OAuth2AuthenticationToken) SecurityContextHolder.getContext().getAuthentication();
+        OAuth2AuthenticationToken authentication2 = (OAuth2AuthenticationToken) authentication;
+        return authentication2.getPrincipal();
+    }
+
+    @GetMapping("/oauth2User")
+    public OAuth2User user(@AuthenticationPrincipal OAuth2User oAuth2User) {
+        System.out.println("oAuth2User = " + oAuth2User);
+        return oAuth2User;
+    }
+
+    @GetMapping("/oidcUser")
+    public OidcUser user(@AuthenticationPrincipal OidcUser oidcUser) {
+        System.out.println("oidcUser = " + oidcUser);
+        return oidcUser;
     }
 }
