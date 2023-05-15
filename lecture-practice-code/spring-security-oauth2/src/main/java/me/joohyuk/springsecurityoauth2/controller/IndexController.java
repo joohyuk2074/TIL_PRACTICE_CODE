@@ -33,7 +33,6 @@ public class IndexController {
 
     @GetMapping("/user")
     public OAuth2User user(Authentication authentication) {
-//        OAuth2AuthenticationToken authentication1 = (OAuth2AuthenticationToken) SecurityContextHolder.getContext().getAuthentication();
         OAuth2AuthenticationToken authentication2 = (OAuth2AuthenticationToken) authentication;
         return authentication2.getPrincipal();
     }
