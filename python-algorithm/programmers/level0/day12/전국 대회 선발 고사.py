@@ -24,4 +24,4 @@ def solution(rank, attendance):
             result.append(student.index)
             count += 1
 
-    return 10000 * result[0] + 100 * result[1] + result[0]
+    return 10000 * result[0] + 100 * result[1] + result[2]
