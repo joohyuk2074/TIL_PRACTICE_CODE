@@ -6,25 +6,25 @@ spring:
     oauth2:
       client:
         registration:
-#          keycloak:
-#            client-id: oauth2-client-app
-#            client-secret: lygPKsTF849lHc0PA0uV3HVdGmneGaMU
-#            client-name: oauth2-client-app
-#            authorization-grant-type: authorization_code
-#            scope: openid, profile
-#            client-authentication-method: client_secret_basic
-#            redirect-uri: http://localhost:8081/client
-#            provider: keycloak
-
           keycloak:
             client-id: oauth2-client-app
             client-secret: lygPKsTF849lHc0PA0uV3HVdGmneGaMU
             client-name: oauth2-client-app
-            authorization-grant-type: password
+            authorization-grant-type: authorization_code
             scope: openid, profile
             client-authentication-method: client_secret_basic
             redirect-uri: http://localhost:8081/client
             provider: keycloak
+
+#          keycloak:
+#            client-id: oauth2-client-app
+#            client-secret: lygPKsTF849lHc0PA0uV3HVdGmneGaMU
+#            client-name: oauth2-client-app
+#            authorization-grant-type: password
+#            scope: openid, profile
+#            client-authentication-method: client_secret_basic
+#            redirect-uri: http://localhost:8081/client
+#            provider: keycloak
 
         provider:
           keycloak:

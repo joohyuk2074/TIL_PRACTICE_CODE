@@ -9,16 +9,16 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 @Configuration
 public class OAuth2Config {
-
-    @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.authorizeHttpRequests(authRequest -> authRequest
-            .requestMatchers("/", "oauth2Login", "logout", "client").permitAll()
-            .anyRequest().authenticated());
-
-        http
-            .oauth2Client();
-
-        return http.build();
-    }
+//
+//    @Bean
+//    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+//        http.authorizeHttpRequests(authRequest -> authRequest
+//            .requestMatchers("/", "oauth2Login", "logout", "client").permitAll()
+//            .anyRequest().authenticated());
+//
+//        http
+//            .oauth2Client();
+//
+//        return http.build();
+//    }
 }

@@ -17,37 +17,37 @@ import org.springframework.web.bind.annotation.GetMapping;
 @RequiredArgsConstructor
 @Controller
 public class LoginController {
-
-    private final DefaultOAuth2AuthorizedClientManager oAuth2AuthorizedClientManager;
-
-    private final OAuth2AuthorizedClientRepository oAuth2AuthorizedClientRepository;
-
-    @GetMapping("/oauth2Login")
-    public String oauth2Login(Model model, HttpServletRequest request, HttpServletResponse response) {
-
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-
-        OAuth2AuthorizeRequest authorizeRequest = OAuth2AuthorizeRequest
-            .withClientRegistrationId("keycloak")
-            .principal(authentication)
-            .attribute(HttpServletRequest.class.getName(), request)
-            .attribute(HttpServletRequest.class.getName(), response)
-            .build();
-
-        OAuth2AuthorizedClient authorizedClient = oAuth2AuthorizedClientManager.authorize(authorizeRequest);
-
-        if (authorizedClient != null) {
-
-        }
-
-        return "redirect:/";
-    }
-
-    @GetMapping("/logout")
-    public String logout(Authentication authentication, HttpServletRequest request, HttpServletResponse response) {
-        SecurityContextLogoutHandler logoutHandler = new SecurityContextLogoutHandler();
-        logoutHandler.logout(request, response, authentication);
-
-        return "redirect:/";
-    }
+//
+//    private final DefaultOAuth2AuthorizedClientManager oAuth2AuthorizedClientManager;
+//
+//    private final OAuth2AuthorizedClientRepository oAuth2AuthorizedClientRepository;
+//
+//    @GetMapping("/oauth2Login")
+//    public String oauth2Login(Model model, HttpServletRequest request, HttpServletResponse response) {
+//
+//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//
+//        OAuth2AuthorizeRequest authorizeRequest = OAuth2AuthorizeRequest
+//            .withClientRegistrationId("keycloak")
+//            .principal(authentication)
+//            .attribute(HttpServletRequest.class.getName(), request)
+//            .attribute(HttpServletRequest.class.getName(), response)
+//            .build();
+//
+//        OAuth2AuthorizedClient authorizedClient = oAuth2AuthorizedClientManager.authorize(authorizeRequest);
+//
+//        if (authorizedClient != null) {
+//
+//        }
+//
+//        return "redirect:/";
+//    }
+//
+//    @GetMapping("/logout")
+//    public String logout(Authentication authentication, HttpServletRequest request, HttpServletResponse response) {
+//        SecurityContextLogoutHandler logoutHandler = new SecurityContextLogoutHandler();
+//        logoutHandler.logout(request, response, authentication);
+//
+//        return "redirect:/";
+//    }
 }
