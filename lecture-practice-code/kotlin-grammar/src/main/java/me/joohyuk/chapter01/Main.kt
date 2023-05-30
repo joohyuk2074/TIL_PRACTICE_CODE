@@ -1,6 +1,5 @@
 package me.joohyuk.chapter01
 
-import me.joohyuk.chapter01.Main.Person
 
 fun main() {
     // 1. 변수 선언
