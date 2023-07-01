@@ -3,6 +3,8 @@ package com.group.javatokotlinlibraryapp.domain.user;
 import com.group.javatokotlinlibraryapp.domain.book.Book;
 import com.group.javatokotlinlibraryapp.domain.user.loanhistory.UserLoanHistory;
 import jakarta.persistence.*;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,10 +56,12 @@ public class User {
         targetHistory.doReturn();
     }
 
+    @NotNull
     public String getName() {
         return name;
     }
 
+    @Nullable
     public Integer getAge() {
         return age;
     }
