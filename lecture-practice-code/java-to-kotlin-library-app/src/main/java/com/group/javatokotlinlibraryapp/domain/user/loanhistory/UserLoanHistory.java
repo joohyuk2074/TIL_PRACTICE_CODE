@@ -6,6 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import org.jetbrains.annotations.NotNull;
 
 import static jakarta.persistence.GenerationType.IDENTITY;
 
@@ -33,12 +34,21 @@ public class UserLoanHistory {
         this.isReturn = isReturn;
     }
 
+    @NotNull
     public String getBookName() {
         return this.bookName;
+    }
+
+    @NotNull
+    public User getUser() {
+        return user;
+    }
+
+    public boolean isReturn() {
+        return isReturn;
     }
 
     public void doReturn() {
         this.isReturn = true;
     }
-
 }

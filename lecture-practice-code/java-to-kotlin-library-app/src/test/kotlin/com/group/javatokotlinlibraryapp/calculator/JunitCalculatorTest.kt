@@ -36,7 +36,7 @@ class JunitCalculatorTest {
         val calculator = Calculator(5)
 
         // when
-        calculator.minus(3)
+        calculator.multiply(3)
 
         // then
         assertThat(calculator.number).isEqualTo(15)
