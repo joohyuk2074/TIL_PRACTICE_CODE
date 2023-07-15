@@ -21,6 +21,7 @@ out/
 !**/src/test/**/out/
 !**/src/main/resources/static/**
 !**/src/main/resources/templates/**
+/Users/joohyuk/Documents/JAVAWORKSPACE/TIL_PRACTICE_CODE/lecture-practice-code/spring-security-oauth2/src/main/resources/**
 
 ### VS Code ###
 .vscode/
