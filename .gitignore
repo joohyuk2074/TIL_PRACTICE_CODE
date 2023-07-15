@@ -19,6 +19,8 @@ downloads/
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
+!**/src/main/resources/static/**
+!**/src/main/resources/templates/**
 
 ### VS Code ###
 .vscode/
