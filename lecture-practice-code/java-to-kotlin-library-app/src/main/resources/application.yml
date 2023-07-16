@@ -1,10 +1,11 @@
 spring:
   datasource:
-    url: 'jdbc:h2:mem:library'
-    username: 'user'
-    password: ''
-    driver-class-name: org.h2.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test?useUnicode=yes&characterEncoding=UTF-8&useSSL=true&allowPublicKeyRetrieval=true&serverTimezone=Asia/Seoul
+    username: root
+    password: password
   jpa:
+#    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     hibernate:
       ddl-auto: create
     properties:
