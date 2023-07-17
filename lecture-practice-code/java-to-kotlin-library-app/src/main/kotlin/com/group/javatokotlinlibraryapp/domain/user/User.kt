@@ -2,7 +2,7 @@ package com.group.javatokotlinlibraryapp.domain.user
 
 import com.group.javatokotlinlibraryapp.domain.book.Book
 import com.group.javatokotlinlibraryapp.domain.user.loanhistory.UserLoanHistory
-import jakarta.persistence.*
+import javax.persistence.*
 
 @Entity
 class User(
