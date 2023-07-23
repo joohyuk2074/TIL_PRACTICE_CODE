@@ -2,6 +2,7 @@ package com.group.javatokotlinlibraryapp.service.book
 
 import com.group.javatokotlinlibraryapp.domain.book.Book
 import com.group.javatokotlinlibraryapp.domain.book.BookRepository
+import com.group.javatokotlinlibraryapp.domain.book.BookType
 import com.group.javatokotlinlibraryapp.domain.user.User
 import com.group.javatokotlinlibraryapp.domain.user.UserRepository
 import com.group.javatokotlinlibraryapp.domain.user.loanhistory.UserLoanHistory
@@ -35,7 +36,7 @@ class BookServiceTest @Autowired constructor(
     @DisplayName("책 등록이 정상 동작한다.")
     fun saveBookTest() {
         // given
-        val request = BookRequest("이상한 나라의 엘리스", "COMPUTER")
+        val request = BookRequest("이상한 나라의 엘리스", BookType.COMPUTER)
 
         // when
         bookService.saveBook(request)
@@ -44,7 +45,7 @@ class BookServiceTest @Autowired constructor(
         val books = bookRepository.findAll()
         assertThat(books).hasSize(1)
         assertThat(books[0].name).isEqualTo("이상한 나라의 엘리스")
-        assertThat(books[0].type).isEqualTo("COMPUTER")
+        assertThat(books[0].type).isEqualTo(BookType.COMPUTER)
     }
 
     @Test
