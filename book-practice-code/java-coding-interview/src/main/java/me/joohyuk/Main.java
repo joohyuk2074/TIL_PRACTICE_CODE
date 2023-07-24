@@ -9,8 +9,17 @@ public class Main {
         String[] input1 = {"img12.png", "img10.png", "img02.png", "img1.png", "IMG01.GIF", "img2.JPG"};
         String[] input2 = {"F-5 Freedom Fighter", "B-50 Superfortress", "A-10 Thunderbolt II", "F-14 Tomcat"};
 
-        String[] results1 = solution(input1);
+//        String[] results1 = solution(input1);
+//        for (String s : results1) {
+//            System.out.print(s + " ");
+//        }
+
+//        System.out.println();
+
         String[] results2 = solution(input2);
+        for (String s : results2) {
+            System.out.print(s + " ");
+        }
     }
 
 
@@ -88,8 +97,9 @@ class File implements Comparable<File> {
     @Override
     public int compareTo(File file) {
         String thisHeader = this.header.substring(0).toLowerCase();
-        String otherHeader = file.numbers.substring(0).toLowerCase();
+        String otherHeader = file.header.substring(0).toLowerCase();
 
+        System.out.println();
         if (thisHeader.equals(otherHeader)) {
             int thisNumber = Integer.parseInt(this.numbers.toString());
             int otherNumber = Integer.parseInt(file.numbers.toString());
