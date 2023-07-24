@@ -4,6 +4,7 @@ import com.group.javatokotlinlibraryapp.domain.book.Book
 import com.group.javatokotlinlibraryapp.domain.book.BookRepository
 import com.group.javatokotlinlibraryapp.domain.user.UserRepository
 import com.group.javatokotlinlibraryapp.domain.user.loanhistory.UserLoanHistoryRepository
+import com.group.javatokotlinlibraryapp.domain.user.loanhistory.UserLoanStatus
 import com.group.javatokotlinlibraryapp.dto.book.request.BookLoanRequest
 import com.group.javatokotlinlibraryapp.dto.book.request.BookRequest
 import com.group.javatokotlinlibraryapp.dto.book.request.BookReturnRequest
@@ -27,7 +28,7 @@ class BookService(
     @Transactional
     fun loanBook(request: BookLoanRequest) {
         val book = bookRepository.findByName(request.bookName) ?: fail()
-        if (userLoanHistoryRepository.findByBookNameAndIsReturn(request.bookName, false) != null) {
+        if (userLoanHistoryRepository.findByBookNameAndStatus(request.bookName, UserLoanStatus.LOANED) != null) {
             throw IllegalArgumentException("진작 대출되어 있는 책입니다")
         }
 
