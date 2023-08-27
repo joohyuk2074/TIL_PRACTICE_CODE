@@ -4,17 +4,13 @@ import math
 def solution(k, d):
     answer = 0
 
-    n = d // k
-    for a in range(0, n + 1):
-        for b in range(0, n + 1):
-            if possible(a * k, b * k, d):
-                answer += 1
+    y = 0
+    for num in range(0, d + 1, k):  # 좌표를 k 배수만큼 증가
+        y_possible_distance = int(math.sqrt(d ** 2 - num ** 2))
+        cnt = y_possible_distance // k + 1
+        answer += cnt
 
     return answer
-
-
-def possible(x, y, d):
-    return math.sqrt(x ** 2 + y ** 2) <= d
 
 
 k1 = 2
