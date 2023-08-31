@@ -19,4 +19,5 @@ include 'lecture-practice-code:cafekiosk'
 include 'posicube'
 include 'posicube:tokenizer'
 include 'posicube:meilisearch-practice'
+include 'coding-test'
 
