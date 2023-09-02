@@ -1,3 +1,5 @@
+from collections import OrderedDict
+
 def solution(m, musicinfos):
     answer = ''
 
@@ -30,7 +32,7 @@ def solution(m, musicinfos):
     if index == -1:
         return "(None)"
 
-    result_map = {}
+    result_map = OrderedDict()
     for i in range(index, index + len(memory_orders)):
         music_name_key = music_order_list[i][1]
         if music_name_key in result_map:
@@ -55,7 +57,7 @@ def time_to_long(time):
 
 
 def replace_orders(orders):
-    return orders.replace('C#', 'c').replace('D#', 'd').replace('F#', 'f').replace('G#', 'g').replace('A#', 'a')
+    return orders.replace('C#', 'c').replace('D#', 'd').replace('F#', 'f').replace('G#', 'g').replace('A#', 'a').replace('E#', 'e')
 
 
 # m = "ABCDEFG"
@@ -65,9 +67,13 @@ def replace_orders(orders):
 # m1 = "CC#BCC#BCC#BCC#B"
 # musicinfos1 = ["03:00,03:30,FOO,CC#B", "04:00,04:08,BAR,CC#BCC#BCC#B"]
 # print(solution(m1, musicinfos1))
+#
+# m2 = "ABC"
+# musicinfos2 = ["12:00,12:14,HELLO,C#DEFGAB", "13:00,13:05,WORLD,ABCDEF"]
+# print(solution(m2, musicinfos2))
+#
+# print(solution("C", ["13:00,13:01,WORLD,F"]))
 
-m2 = "ABC"
-musicinfos2 = ["12:00,12:14,HELLO,C#DEFGAB", "13:00,13:05,WORLD,ABCDEF"]
-print(solution(m2, musicinfos2))
-
-print(solution("C", ["13:00,13:01,WORLD,F"]))
+m = "C#C"
+musicinfos = ["12:00,12:06,HELLO,C#C#CC#"]
+print(solution(m, musicinfos))

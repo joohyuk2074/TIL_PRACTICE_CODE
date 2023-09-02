@@ -1,41 +1,41 @@
-import itertools
-
-
 def solution(n, k):
     answer = []
 
-    arr = [i for i in range(1, n + 1)]
-    permutations = list(itertools.permutations(arr))
-    answer = list(permutations[k - 1])
+    num_arr = []
+    for i in range(1, n + 1):
+        num_arr.append(i)
+
+    dp = [0] * (n + 1)
+    dp[0], dp[1] = 1, 1
+
+    arr = []
+    while n:
+        index = k // factorial(n - 1, dp)
+        arr.append(num_arr[index])
+
+        k %= factorial(n - 1, dp)
+
+        n -= 1
 
     return answer
 
 
-def other_solution(n, k):
-    answer = []
+def factorial(number, dp):
+    if dp[number - 1]:
+        return dp[number - 1] * number
 
-    result = []
-    map = [False for _ in range(0, n + 1)]
+    result = 1
+    for num in range(number, 1, -1):
+        result *= num
 
-    recursive(result, n, map, answer)
-
-    result = answer[k - 1]
-
-    return result
-
-
-def recursive(result, n, map, arr):
-    if len(result) == n:
-        arr.append(result.copy())
-        return
-
-    for i in range(1, n + 1):
-        if map[i] is False:
-            map[i] = True
-            result.append(i)
-            recursive(result, n, map, arr)
-            result.remove(i)
-            map[i] = False
+    dp[number] = result
+    return dp[number]
 
 
-print(solution(3, 5))
+n = 3
+k = 5
+print(solution(n, k))
+#
+# dp = [0] * 1024
+# arr = []
+# print(factorial(4, dp))
