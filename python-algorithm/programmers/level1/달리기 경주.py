@@ -1,27 +1,23 @@
-from collections import deque
-
-
 def solution(players, callings):
     answer = []
 
-    players_deque = deque()
-    for player in players:
-        players_deque.append(player)
+    order_to_player_map = {}
+    for i in range(len(players)):
+        order_to_player_map[players[i]] = i
 
-    calling_stack = []
     for calling in callings:
+        idx = order_to_player_map[calling]
+        player = players[idx - 1]
 
-        while players_deque[-1] != calling:
-            calling_stack.append(players_deque.pop())
+        prev_idx = order_to_player_map[player]
 
-        current_element = players_deque.pop()
-        calling_stack.append(players_deque.pop())
-        calling_stack.append(current_element)
+        players[idx], players[prev_idx] = player, calling
+        order_to_player_map[player] = idx
+        order_to_player_map[calling] = prev_idx
 
-        while calling_stack:
-            players_deque.append(calling_stack.pop())
+    answer = players
 
-    return list(players_deque)
+    return answer
 
 
 players = ["mumu", "soe", "poe", "kai", "mine"]
