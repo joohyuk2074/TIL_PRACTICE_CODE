@@ -1,3 +1,6 @@
+memo = {}
+
+
 def solution(n, k):
     answer = []
 
@@ -5,31 +8,30 @@ def solution(n, k):
     for i in range(1, n + 1):
         num_arr.append(i)
 
-    dp = [0] * (n + 1)
-    dp[0], dp[1] = 1, 1
+    memo[0] = 1
+    memo[1] = 1
+    factorial(n)
 
     arr = []
+    k -= 1
     while n:
-        index = k // factorial(n - 1, dp)
-        arr.append(num_arr[index])
-
-        k %= factorial(n - 1, dp)
-
         n -= 1
+        index = k // memo[n]
+        arr.append(num_arr[index])
+        k %= memo[n]
+        num_arr.pop(index)
+
+    answer = arr
 
     return answer
 
 
-def factorial(number, dp):
-    if dp[number - 1]:
-        return dp[number - 1] * number
+def factorial(n):
+    if n in memo:
+        return memo[n]
 
-    result = 1
-    for num in range(number, 1, -1):
-        result *= num
-
-    dp[number] = result
-    return dp[number]
+    memo[n] = n * factorial(n - 1)
+    return memo[n]
 
 
 n = 3
