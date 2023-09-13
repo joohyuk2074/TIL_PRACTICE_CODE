@@ -1,3 +1,5 @@
+# 암호 키
+
 TC = int(input())
 
 for _ in range(TC):
