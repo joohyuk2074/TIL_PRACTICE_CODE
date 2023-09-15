@@ -2,12 +2,12 @@
 answer = [0]
 
 n = int(input())
-coordinate_list = [list(map(int, input().split())) for _ in range(4)]
+coordinate_list = [list(map(int, input().split())) for _ in range(n)]
 sorted_coordinate_list = sorted(coordinate_list, key=lambda p: p[0] ** 2 + p[1] ** 2)
 
 for member_cnt in range(2, n + 1):
 
-    min_length = 1_000_000 * 1_000_000
+    min_length = 1_000_001 + 1_000_001
 
     start_idx = 0
     while start_idx + member_cnt <= n:
@@ -32,9 +32,9 @@ for member_cnt in range(2, n + 1):
 
     answer.append(min_length)
 
-print(answer)
+print(" ".join(map(str, answer)))
 
-# FIXME: 런타임에러
+# FIXME: 틀림
 
 # 모든 위치에서
 # 모든 친구들의 거리를 계산해서
