@@ -34,6 +34,8 @@ for member_cnt in range(2, n + 1):
 
 print(answer)
 
+# FIXME: 런타임에러
+
 # 모든 위치에서
 # 모든 친구들의 거리를 계산해서
 # 가장 적은 값을 알려주면 되겠죠 !
