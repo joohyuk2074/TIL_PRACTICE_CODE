@@ -1,60 +1,26 @@
-# 체커
-answer = [0]
+arr = []
+N = int(input())
 
-n = int(input())
-coordinate_list = [list(map(int, input().split())) for _ in range(n)]
-sorted_coordinate_list = sorted(coordinate_list, key=lambda p: p[0] ** 2 + p[1] ** 2)
+for _ in range(N):
+    arr.append(list(map(int, input().split())))
 
-for member_cnt in range(2, n + 1):
+ans = [1 << 30] * (N + 1)  # 각 개수(인덱스)마다 최소거리를 저장하기 위해 아주큰값으로 초기화
 
-    min_length = 1_000_001 + 1_000_001
+for i in range(N):
+    for j in range(N):
+        mid_x, mid_y = arr[i][0], arr[j][1]  # 모든점의 좌표를 설정
 
-    start_idx = 0
-    while start_idx + member_cnt <= n:
+        distance = []
+        for h in range(N):  # 한점에서 부터 모든 점까지의 거리를 저장
+            distance.append(abs(mid_x - arr[h][0]) + abs(mid_y - arr[h][1]))
+        distance.sort()  # 최소 거리순으로 정렬
 
-        mid_x = 0
-        mid_y = 0
-        for i in range(start_idx, start_idx + member_cnt):
-            mid_x += coordinate_list[i][0]
-            mid_y += coordinate_list[i][1]
-        mid_x //= member_cnt
-        mid_y //= member_cnt
+        print(distance)
 
-        sum = 0
-        for i in range(start_idx, start_idx + member_cnt):
-            coordinate = coordinate_list[i]
-            sum += abs(mid_x - coordinate[0]) + abs(mid_y - coordinate[1])
+        sum_ = 0  # 각 거리마다 최소 거리를 저장
+        for dist in range(N):
+            sum_ += distance[dist]  # 각 좌표개수마다 거리를 더해준다.
+            if ans[dist + 1] > sum_:  # 현재 거리에 저장된 최소거리보다 지금 구한 거리가 더 최소라면
+                ans[dist + 1] = sum_  # 그값을 저장
 
-        if min_length > sum:
-            min_length = sum
-
-        start_idx += 1
-
-    answer.append(min_length)
-
-print(" ".join(map(str, answer)))
-
-# FIXME: 틀림
-
-# 모든 위치에서
-# 모든 친구들의 거리를 계산해서
-# 가장 적은 값을 알려주면 되겠죠 !
-
-# 1번 아이디어
-# X, Y를 구분해서 계산해준 뒤에 합쳐서
-# 최솟값을 알려주면 됩니다!
-
-# 2번 아이디어
-# X, Y를 구분해서 계산해준 뒤에 합쳐서
-# 최솟값을 알려주면 됩니다!
-
-# 3번 아이디어
-# 최소 거리를 계산하고 싶다.
-# 그리고, 2명이 모여야한다.
-# 그 점에서, 가까운 두명의 거리만 더해주면 되지 않을까
-
-# A번집 B번집 C번집
-
-# [1, 2, 3] / [3, 4, 5,] / [2, 2, 5]
-
-# 두 사람이 모일 수 있는 최소거리는 -> 3!
+print(*ans[1:])
