@@ -19,7 +19,7 @@ public class Test10 {
         }
 
         // 첫 번째 열에 0이 하나 이상 있는지 확인합니다.
-        for (int i = 0; j < m.length; i++) {
+        for (int i = 0; i < m.length; i++) {
             if (m[i][0] == 0) {
                 firstColumnHasZeros = true;
                 break;
@@ -69,9 +69,5 @@ public class Test10 {
         for (int i = 0; i < m.length; i++) {
             m[i][c] = 0;
         }
-    }
-
-    public static void main(String[] args) {
-
     }
 }
