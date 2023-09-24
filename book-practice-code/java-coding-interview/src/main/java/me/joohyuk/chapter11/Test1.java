@@ -1,6 +1,6 @@
 package me.joohyuk.chapter11;
 
-import java.util.Arrays;
+import java.util.*;
 
 public class Test1<K, V> {
 
@@ -62,6 +62,26 @@ public class Test1<K, V> {
         }
 
         entries[i] = null;
+    }
+
+    public Set<K> keySet() {
+        Set<K> set = new HashSet<>();
+
+        for (int i = 0; i < size; i++) {
+            set.add(entries[i].getKey());
+        }
+
+        return set;
+    }
+
+    public Collection<V> values() {
+        List<V> list = new ArrayList<>();
+
+        for (int i = 0; i < size; i++) {
+            list.add(entries[i].getValue());
+        }
+
+        return list;
     }
 
     private final class MyEntry<K, V> {
