@@ -5,28 +5,12 @@
 #         self.left = left
 #         self.right = right
 
-from collections import deque
-
-
 class Solution:
     def maxDepth(self, root):
-        max_depth = 0
         if root is None:
-            return max_depth
+            return 0
 
-        queue = deque()
-        queue.append((root, max_depth + 1))
-
-        while queue:
-            cur_node, cur_depth = queue.popleft()
-            max_depth = cur_depth
-
-            if cur_node.left:
-                queue.append((cur_node.left, cur_depth + 1))
-            if cur_node.right:
-                queue.append((cur_node.right, cur_depth + 1))
-
-        return max_depth
+        return max(self.maxDepth(root.left), self.maxDepth(root.right)) + 1
 
 
 solution = Solution()
