@@ -14,6 +14,7 @@ include 'lecture-practice-code:restful-web-services'
 include 'lecture-practice-code:kotlin-grammar'
 include 'lecture-practice-code:java-to-kotlin-library-app'
 include 'lecture-practice-code:cafekiosk'
+include 'lecture-practice-code:stock'
 
 
 include 'posicube'
