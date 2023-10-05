@@ -15,6 +15,9 @@ include 'lecture-practice-code:kotlin-grammar'
 include 'lecture-practice-code:java-to-kotlin-library-app'
 include 'lecture-practice-code:cafekiosk'
 include 'lecture-practice-code:stock'
+include 'lecture-practice-code:coupon-system'
+include 'lecture-practice-code:coupon-system:api'
+include 'lecture-practice-code:coupon-system:consumer'
 
 
 include 'posicube'
