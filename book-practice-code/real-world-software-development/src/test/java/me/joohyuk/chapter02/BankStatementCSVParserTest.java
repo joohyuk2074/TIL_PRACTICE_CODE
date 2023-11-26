@@ -1,5 +1,8 @@
 package me.joohyuk.chapter02;
 
+import me.joohyuk.parser.parser.BankStatementCSVParser;
+import me.joohyuk.parser.parser.BankStatementParser;
+import me.joohyuk.parser.domain.BankTransaction;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;

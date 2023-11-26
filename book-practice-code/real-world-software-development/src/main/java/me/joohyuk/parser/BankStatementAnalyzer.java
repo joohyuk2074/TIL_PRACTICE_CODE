@@ -1,4 +1,8 @@
-package me.joohyuk.chapter02;
+package me.joohyuk.parser;
+
+import me.joohyuk.parser.domain.BankTransaction;
+import me.joohyuk.parser.parser.BankStatementParser;
+import me.joohyuk.parser.processor.BankStatementProcessor;
 
 import java.io.IOException;
 import java.nio.file.Files;

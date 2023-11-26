@@ -1,8 +1,8 @@
 package me.joohyuk;
 
-import me.joohyuk.chapter02.BankStatementAnalyzer;
-import me.joohyuk.chapter02.BankStatementCSVParser;
-import me.joohyuk.chapter02.BankStatementParser;
+import me.joohyuk.parser.BankStatementAnalyzer;
+import me.joohyuk.parser.parser.BankStatementCSVParser;
+import me.joohyuk.parser.parser.BankStatementParser;
 
 import java.io.IOException;
 

@@ -1,4 +1,6 @@
-package me.joohyuk.chapter02;
+package me.joohyuk.parser.parser;
+
+import me.joohyuk.parser.domain.BankTransaction;
 
 import java.util.List;
 

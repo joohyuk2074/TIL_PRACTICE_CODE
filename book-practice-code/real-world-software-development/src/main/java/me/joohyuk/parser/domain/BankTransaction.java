@@ -1,4 +1,4 @@
-package me.joohyuk.chapter02;
+package me.joohyuk.parser.domain;
 
 import java.time.LocalDate;
 import java.util.Objects;
@@ -50,6 +50,4 @@ public class BankTransaction {
     public int hashCode() {
         return Objects.hash(date, amount, description);
     }
-
-
 }
