@@ -4,7 +4,6 @@ include 'book-practice-code:java-coding-interview'
 include 'book-practice-code:effective-java'
 include 'book-practice-code:spring-security-in-action:ssia-ch2'
 include 'book-practice-code:data-structure'
-include 'book-practice-code:real-world-software-development'
 
 include 'lecture-practice-code'
 include 'lecture-practice-code:spring-security-oauth2'
