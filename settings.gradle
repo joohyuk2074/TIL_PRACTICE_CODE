@@ -24,4 +24,6 @@ include 'posicube'
 include 'posicube:tokenizer'
 include 'posicube:meilisearch-practice'
 include 'coding-test'
+include 'book-practice-code:twootr'
+findProject(':book-practice-code:twootr')?.name = 'twootr'
 
