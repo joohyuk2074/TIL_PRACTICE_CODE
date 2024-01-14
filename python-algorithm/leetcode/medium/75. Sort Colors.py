@@ -27,15 +27,50 @@ class Solution:
                 j -= 1
             nums[j + 1] = key
 
+    def partition(self, left, right, nums):
+        # 피벗 선생
+        pivot = nums[right]
+
+        # 작은 요소의 인덱스
+        i = left - 1
+
+        # 배열을 피벗기준으로 나눈다
+        for j in range(left, right):
+            target = nums[j]
+            if target < pivot:
+                i += 1
+                temp = nums[j]
+                nums[j] = target
+                nums[i] = temp
+
+        pivot_pos = i + 1
+        temp = nums[right]
+        nums[right] = nums[pivot_pos]
+        nums[pivot_pos] = temp
+
+        return pivot_pos
+
+    def quickSort(self, left, right, nums):
+        if left >= right:
+            return
+
+        pivot_pos = self.partition(left, right, nums)
+
+        self.quickSort(left, pivot_pos - 1, nums)
+        self.quickSort(pivot_pos + 1, right, nums)
+
+    def qs(self, nums):
+        self.quickSort(0, len(nums) - 1, nums)
+
     def sortColors(self, nums):
         """
         Do not return anything, modify nums in-place instead.
         """
-        self.insertionSort(nums)
+        self.qs(nums)
 
         return nums
 
 
 solution = Solution()
 nums = [2, 0, 2, 1, 1, 0]
-print(solution.sortColors(nums))
+print(solution.qs(nums))
